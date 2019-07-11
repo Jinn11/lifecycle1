@@ -12,13 +12,18 @@ constructor(){
 componentDidMount(){
   setInterval(()=>{
   this.setState({count:this.state.count +1 })
-  },100)
+  },1000)
 }
 
 clear = () => {
   this.setState({
     count: 0,
   })
+}
+
+shouldComponentUpdate(nextProps,nextState){
+if(nextState.count%3===0)return true;
+else return false;
 }
 
   render(){
